@@ -1,0 +1,17 @@
+{
+  "name": "poc_playwright",
+  "version": "1.0.0",
+  "description": "Automated poc with playwright",
+  "main": "index.js",
+  "scripts": {
+    "tests:chrome": "playwright test --config=playwright.config.ts --project=Chromium",
+    "tests:firefox": "playwright test --config=playwright.config.ts --project=Firefox",
+    "tests:webkit": "playwright test --config=playwright.config.ts --project=Webkit"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/test": "^1.18.1",
+    "prettier": "^2.5.1"
+  }
+}
