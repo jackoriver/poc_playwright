@@ -1,3 +1,16 @@
+# Dependency directories
+node_modules/
+playwright-report/
+
+# Optional npm cache directory
+.npm
+
+# dotenv environment variables file
+.env
+
+# IDE webstorm
 .idea/
 .prettierrc
+
+# images for Visual Testing
 *.png
