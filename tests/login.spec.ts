@@ -1,41 +1,9 @@
 import {test, expect} from "@playwright/test";
 import {LoginPage} from "../pages/LoginPage";
-
 import {loadHomePage, assertTitle, assertErrorMessage} from '../helpers'
 
-test("Simple basic test", async ({page}) => {
-    await page.goto("http://fidelitasplayground.xyz")
-    const pageTitle = await page.locator('h1')
-    await expect(pageTitle).toContainText("api_test")
-})
 
-test("Clicking on Elements", async ({page}) => {
-    await page.goto('http://fidelitasplayground.xyz/my-account/')
-    await page.click('text=Log in')
-    const errorMessage = await page.locator('.woocommerce-error')
-    await expect(errorMessage).toContainText("Error: Username is required.")
-})
-
-test.skip("Selectors", async ({page}) => {
-    //text
-    await page.click('text=some text')
-
-    //CSS selector
-    await page.click('button')
-    await page.click('#id')
-    await page.click('.class')
-
-    // Only Visible CSS Selector
-    await page.click('.submit-visible:visible')
-
-    // Combinations
-    await page.click('#username .first')
-
-    //Xpath
-    await page.click('//button')
-})
-
-test.describe("Example Login Suite", () => {
+test.describe.only("Login Suite", () => {
     let loginPage: LoginPage
 
     test.beforeEach(async ({ page }) => {
@@ -43,7 +11,7 @@ test.describe("Example Login Suite", () => {
         await loginPage.loadLoginPage()
     })
 
-    test("Working with inputs", async ({page}) => {
+    test("Verify non existing user cannot login in", async ({page}) => {
         await loginPage.login("jack", "kjkasdk")
         await assertErrorMessage(await loginPage.getErrorMessage(), "The username jack is not registered on this site. If you are unsure of your username, try your email address instead.")
     })
