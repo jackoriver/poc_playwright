@@ -1,6 +1,6 @@
 import {test, expect} from "@playwright/test";
 import {LoginPage} from "../pages/LoginPage";
-import {loadHomePage, assertTitle, assertErrorMessage} from '../helpers'
+import {assertErrorMessage} from '../helpers'
 
 
 test.describe("Login Suite", () => {
