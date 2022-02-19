@@ -3,7 +3,6 @@ import {BasePage} from './BasePage'
 
 export class LoginPage extends BasePage{
     // Selectors
-    // readonly page: Page
     readonly usernameInput: Locator
     readonly passwordInput: Locator
     readonly loginButton: Locator
@@ -32,5 +31,4 @@ export class LoginPage extends BasePage{
     async getErrorMessage(){
         return this.errorMessage
     }
-
 }
