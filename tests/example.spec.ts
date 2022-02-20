@@ -1,7 +1,7 @@
 import {test, expect} from "@playwright/test";
 import {LoginPage} from "../pages/LoginPage";
 
-import {loadHomePage, assertTitle, assertErrorMessage} from '../helpers'
+import {assertErrorMessage} from '../helpers'
 
 test("Simple basic test", async ({page}) => {
     await page.goto("http://fidelitasplayground.xyz")
@@ -74,11 +74,4 @@ test.describe('hooks', () => {
         const element = await page.$('h1')
         await element.screenshot({path: "single_elem.png"})
     })
-})
-
-test("Custome helpers", async ({page}) => {
-    await loadHomePage(page)
-    await assertTitle(page)
-    // const temp = await page.locator('h6')
-    // await expect(temp).toBeVisible()
 })
